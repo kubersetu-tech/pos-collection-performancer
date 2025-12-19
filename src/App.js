@@ -121,7 +121,7 @@ const GoogleSheetPieWithTable = () => {
       intervalRef.current = setInterval(() => {
         console.log("Auto-updating data...");
         fetchData();
-      }, 5000); // 5 seconds
+      }, 1000); // 5 seconds
     }
     
     return () => {
@@ -143,7 +143,7 @@ const GoogleSheetPieWithTable = () => {
       // If turning on auto-update
       intervalRef.current = setInterval(() => {
         fetchData();
-      }, 5000);
+      }, 1000);
     } else {
       // If turning off auto-update
       if (intervalRef.current) {
@@ -196,7 +196,7 @@ const GoogleSheetPieWithTable = () => {
           message: `${employee.name} - Excellent Performance (${employee.value}%)`,
           time: new Date().toLocaleTimeString()
         });
-      } else if (employee.value < 60) {
+      } else if (employee.value < 70) {
         newAlerts.push({
           type: 'bad',
           message: `${employee.name} - Needs Improvement (${employee.value}%)`,
@@ -222,7 +222,7 @@ const GoogleSheetPieWithTable = () => {
     }
 
     // Limit alerts to last 5
-    setAlerts(newAlerts.slice(0, 5));
+    setAlerts(newAlerts.slice(0, 7));
 
     // Set the exact data from your image
     setHeaderStats({
